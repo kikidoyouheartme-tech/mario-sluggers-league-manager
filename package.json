@@ -1,0 +1,45 @@
+{
+  "name": "mario-super-sluggers-league-manager",
+  "version": "1.0.0",
+  "description": "Mario Super Sluggers Franchise & League Manager for Windows (Electron + React + TypeScript + SQLite)",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"tsc -p electron/tsconfig.json && electron .\"",
+    "build": "tsc && vite build && tsc -p electron/tsconfig.json && electron-builder --win",
+    "pack:portable": "tsc && vite build && tsc -p electron/tsconfig.json && electron-builder --win portable"
+  },
+  "dependencies": {
+    "lucide-react": "^0.454.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sql.js": "^1.10.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/sql.js": "^1.4.9",
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.0.1",
+    "electron": "^33.0.2",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
+  },
+  "build": {
+    "appId": "com.sluggers.leaguemanager",
+    "productName": "Mario Super Sluggers League Manager",
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  }
+}
